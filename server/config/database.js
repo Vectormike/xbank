@@ -1,16 +1,20 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 const createDebug = require("debug");
 const chalk = require("chalk");
-const debug = createDebug("app");
+const log = console.log;
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGOURI, {
-      useNewUrlParser: true
+    await mongoose.connect(process.env.DATABASE, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
     });
-    debug(`${chalk.green(`Database is connected`)}`);
+    log(`${chalk.green(`Database is connected`)}`);
   } catch (error) {
-    console.log(debug(`Database is not connected... ${chalk.red(error)}`));
+    console.log(log(`Database is not connected... ${chalk.red(error)}`));
     process.exit(1);
   }
 };
+
+module.exports = connectDB;
