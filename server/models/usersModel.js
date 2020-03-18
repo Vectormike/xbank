@@ -29,6 +29,10 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
+  account_number: {
+    type: Number,
+    required: true
+  },
 });
 
 module.exports = mongoose.model('Users', UserSchema);
