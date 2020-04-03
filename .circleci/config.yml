@@ -2,13 +2,13 @@ version: 2.1
 jobs:
   Build:
     docker:
-      - image: circleci/node:8.9
+      - image: alpine:3.7
     steps:
       - checkout
       - run: npm install
   Test:
     docker:
-      image: circleci/node:8.9
+      image: alpine:3.7
     steps:
       - checkout
       - run: echo "Testing!"
