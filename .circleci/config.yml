@@ -6,17 +6,8 @@ jobs:
     steps:
       - checkout
       - run: npm install
-  Test:
-    docker:
-      image: alpine:3.7
-    steps:
-      - checkout
-      - run: echo "Testing!"
-      - run: npm install
-      - run: npm test
 workflows:
   version: 2
   build_and_test:
     jobs:
       - Build
-      - Test
