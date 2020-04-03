@@ -1,22 +1,22 @@
 version: 2.1
 jobs:
-    Build:
-        docker:
-            - image: circleci/node:8.9
-        steps:
-            - checkout
-            - run: npm install
-    Test: 
-        docker:
-            image: circleci/node:8.9
-        steps:
-            - checkout
-            - run: echo "Testing!"
-            - run: npm install
-            - run: npm test
+  Build:
+    docker:
+      - image: circleci/node:8.9
+    steps:
+      - checkout
+      - run: npm install
+  Test:
+    docker:
+      image: circleci/node:8.9
+    steps:
+      - checkout
+      - run: echo "Testing!"
+      - run: npm install
+      - run: npm test
 workflows:
-    version: 2
-    build_and_test
-        jobs:
-            - Build
-            - Test
+  version: 2
+  build_and_test:
+    jobs:
+      - Build
+      - Test
