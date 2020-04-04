@@ -2,10 +2,13 @@
   "name": "xbank",
   "version": "1.0.0",
   "description": "A simple banking system(Web)",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "test": "mocha app.test.js"
+    "clean": "rm -rf dist",
+    "build": "npm run clean && mkdir dist && babel server --out-dir dist",
+    "server": "node dist/server.js",
+    "server:dev": "nodemon --exec babel-node server/server.js",
+    "test": "mocha --require @babel/register"
   },
   "repository": {
     "type": "git",
@@ -21,16 +24,26 @@
   },
   "homepage": "https://github.com/De-X-team/xbank",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.9.4"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.4",
+    "random-number": "0.0.9"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-transform-async-to-generator": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/register": "^7.9.0",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
     "chai": "^4.2.0",
     "chalk": "^3.0.0",
     "debug": "^4.1.1",
-    "mocha": "^7.1.0",
+    "mocha": "^7.1.1",
     "morgan": "^1.9.1",
     "nodemon": "^2.0.2"
   }
