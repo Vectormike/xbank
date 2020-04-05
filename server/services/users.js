@@ -17,6 +17,14 @@ const Users = {
     });
   },
 
+  async confirmPassword(password, hashedPassword) {
+    const passwordMatch = await bcrypt.compare(password, hashedPassword);
+    if (passwordMatch) {
+      return true;
+    } else {
+      return false;
+    }
+  },
   async createToken(id) {
     jwt.sign(
       id,
