@@ -33,6 +33,10 @@ const UserSchema = new Schema({
     type: Number,
     required: true,
   },
+  token: {
+    type: String,
+    required: true,
+  },
 });
 
 export const User = mongoose.model("Users", UserSchema);
