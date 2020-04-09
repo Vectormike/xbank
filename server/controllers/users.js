@@ -1,5 +1,5 @@
 // Model
-import { User } from "../models/usersModel";
+import { User } from "../models/users";
 
 // Services
 import Users from "../services/users";
